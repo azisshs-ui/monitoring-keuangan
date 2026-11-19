@@ -2,7 +2,7 @@
 const KEY='monitoring-keuangan-v1',months=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
 const seed={accounts:[{id:'tabungan',name:'Tabungan',opening:10587000},{id:'kebutuhan',name:'Kebutuhan',opening:4483000},{id:'mandiri',name:'Rekening Mandiri',opening:0},{id:'tunai',name:'Uang Tunai',opening:0},{id:'usaha',name:'Usaha',opening:0},{id:'emas',name:'Emas',opening:0},{id:'investasi',name:'Investasi',opening:0}],categories:['Gaji','Usaha','Bonus','Hasil Investasi','Makan & Minum','Transportasi','Belanja','Tagihan','Cicilan','Pendidikan','Kesehatan','Hiburan','Zakat & Donasi','Lainnya'],transactions:[{id:'seed1',date:'2026-10-01',description:'Pemasukan',category:'Gaji',type:'income',accountId:'kebutuhan',amount:53044000},{id:'seed2',date:'2026-10-31',description:'Pengeluaran',category:'Lainnya',type:'expense',accountId:'kebutuhan',amount:49961000}]};
 let db;try{db=JSON.parse(localStorage.getItem(KEY))||seed}catch(e){db=seed}
-let tab='home',month=new Date().toISOString().slice(0,7),deferred=null;
+let tab='home',month=(db.transactions.map(t=>t.date.slice(0,7)).sort().at(-1)||new Date().toISOString().slice(0,7)),deferred=null;
 const $=s=>document.querySelector(s),money=n=>'Rp '+Math.round(+n||0).toLocaleString('id-ID'),id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function save(){localStorage.setItem(KEY,JSON.stringify(db))}
 function total(aid){let a=db.accounts.find(x=>x.id===aid);return (a?.opening||0)+db.transactions.filter(t=>t.accountId===aid).reduce((s,t)=>s+(t.type==='income'?1:-1)*Number(t.amount),0)}
