@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#122b45"><meta name="description" content="Monitoring keuangan keluarga dan multi-saldo">
+<title>Monitoring Keuangan</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg"><link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header><div class="brand"><span class="mark">MK</span><div><b>Monitoring Keuangan</b><small>Keuangan keluarga lebih teratur</small></div></div><button id="install" class="ghost" aria-label="Pasang aplikasi">↓</button></header>
+<main id="app"></main>
+<nav><button data-tab="home" class="active">⌂<small>Beranda</small></button><button data-tab="tx">⇄<small>Transaksi</small></button><button data-tab="report">▤<small>Rekap</small></button><button data-tab="settings">⚙<small>Pengaturan</small></button></nav>
+<div id="modal"></div><div id="toast"></div><input hidden type="file" id="restore" accept=".json,application/json">
+<script src="./app.js" defer></script>
+</body></html>
