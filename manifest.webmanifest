@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Monitoring Keuangan Keluarga",
+  "short_name": "Keuangan",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f6fa",
+  "theme_color": "#122b45",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
